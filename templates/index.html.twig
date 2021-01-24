@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}Welcome!{% endblock %}
+
+{% block body %}
+
+<h1>Hoşgeldiniz</h1>
+
+{% if user %}
+    Hoşgeldiniz {{ user.username }}!
+{% else %}
+    Hoşgeldiniz Lütfen Giriş Yapın...
+{% endif %}
+    <br><a href="/login">Giriş Yap</a>
+    <br><a href="/register">Kayıt Ol</a>
+    {% if user %}
+        <br><a href="/logout">Çıkış Yap({{ user.username }})</a>
+    {% endif %}
+{% endblock %}

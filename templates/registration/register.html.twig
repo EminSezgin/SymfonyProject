@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Kayıt Ol{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    <h1>Kayıt Ol</h1>
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Şifre'
+        }) }}
+        {{ form_row(registrationForm.name, {label: 'İsim    '}) }}
+        {{ form_row(registrationForm.lastName, {label: 'Soyisim '}) }}
+        {{ form_row(registrationForm.number, {label: 'Telefon Numaranız '}) }}
+        {{ form_row(registrationForm.agreeTerms, {label: 'Koşullları Kabul Ediyorum.'}) }}
+
+        <button type="submit" class="btn">Kayıt Ol</button>
+    {{ form_end(registrationForm) }}
+{% endblock %}
